@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/df7f5a55-4c18-47dc-9e75-ba1151d739be/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/examination-service-api",
+    "appService.deploySubpath": "."
+}
