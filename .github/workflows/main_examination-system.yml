@@ -32,5 +32,5 @@ jobs:
       with:
         app-name: 'examination-system'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_aa06f5b57a8e41ebb1b3d1b14e11ca12 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bafd279aa36c49d9bba11caa6c4ccdd5 }}
         package: .
