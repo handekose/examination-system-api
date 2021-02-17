@@ -3,6 +3,9 @@ const enrollments = require('../seed_data/enrollments');
 var googleFirestoreService = require("./googleFirestoreService");
 
 let add = async (enrollment) => {
+    if (!enrollment.id) {
+        enrollment.id = uuidv4();
+    }
     var collection = googleFirestoreService.getCollection('enrollments');
     const docRef = collection.doc(enrollment.id);
     await docRef.set(enrollment);
