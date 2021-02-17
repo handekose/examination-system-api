@@ -4,13 +4,15 @@ var courseService = require("../services/courseService");
 var enrollmentService = require("../services/enrollmentService");
 
 let add = async (exam) => {
+    console.log(exam);
+
     if (!exam.id) {
         exam.id = uuidv4();
     }
-
+    exam.startDate = new Date(exam.startDate);
+    exam.endDate = new Date(exam.endDate);
     var collection = googleFirestoreService.getCollection('exams');
     const docRef = collection.doc(exam.id);
-
     await docRef.set(exam);
     return exam;
 }
@@ -124,11 +126,10 @@ let update = async (examPutModel) => {
     }
     exam.name = examPutModel.name;
     exam.courseId = examPutModel.courseId;   
-    exam.startDate = examPutModel.startDate.toDate();
-    exam.endDate = examPutModel.endDate.toDate();
+    exam.startDate = new Date(examPutModel.startDate);
+    exam.endDate = new Date(examPutModel.endDate);
     exam.questions = examPutModel.questions;
     exam.answers = examPutModel.answers;
-
     //Firestore update.
     var userRef = googleFirestoreService.getCollection('exams').doc(examPutModel.id);
     userRef.set(exam);
