@@ -10,9 +10,6 @@ let add = async (exam) => {
 
     var collection = googleFirestoreService.getCollection('exams');
     const docRef = collection.doc(exam.id);
-    
-    exam.startDate = exam.startDate.toDate();
-    exam.endDate = exam.endDate.toDate();
 
     await docRef.set(exam);
     return exam;
